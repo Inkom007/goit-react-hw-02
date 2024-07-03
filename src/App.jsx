@@ -1,3 +1,53 @@
+import Description from "./Description/Description";
+import Options from "./Options/Options";
+import Feedback from "./Feedback/Feedback";
+import Notification from "./Notification/Notification";
+import { useState } from "react";
 
+const App = () => {
+  const [feedback, setFeedback] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
 
+  const updateFeedback = (feedbackType) => {
+    return setFeedback({
+      ...feedback,
+      [feedbackType]: feedback[feedbackType] + 1,
+    });
+  };
 
+  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+
+  const handleReset = () => {
+    return setFeedback({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+  };
+
+  return (
+    <>
+      <Description />
+      <Options
+        updateFeedback={updateFeedback}
+        handleReset={handleReset}
+        totalFeedback={totalFeedback}
+      />
+      {totalFeedback > 0 ? (
+        <Feedback
+          totalFeedback={totalFeedback}
+          good={feedback.good}
+          neutral={feedback.neutral}
+          bad={feedback.bad}
+        />
+      ) : (
+        <Notification />
+      )}
+    </>
+  );
+};
+
+export default App;
