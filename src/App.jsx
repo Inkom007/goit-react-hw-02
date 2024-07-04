@@ -30,6 +30,8 @@ const App = () => {
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
 
+  const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
+
   const handleReset = () => {
     return setFeedback({
       good: 0,
@@ -52,6 +54,7 @@ const App = () => {
           good={feedback.good}
           neutral={feedback.neutral}
           bad={feedback.bad}
+          positiveFeedback={positiveFeedback}
         />
       ) : (
         <Notification />
