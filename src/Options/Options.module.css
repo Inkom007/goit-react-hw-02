@@ -6,11 +6,11 @@
   height: 50px;
   border-radius: 10px;
   border: none;
-  background-color: rgb(224, 182, 189);
-  font-size: 16px;
+  background-color: rgb(192, 143, 109);
+  font-size: 18px;
   font-style: italic;
 }
 
 .button:hover {
-  background-color: rgb(210, 137, 149);
+  background-color: rgb(140, 103, 79);
 }
