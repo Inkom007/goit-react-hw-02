@@ -1,11 +1,15 @@
+import s from "./Feedback.module.css";
+
 const Feedback = ({ totalFeedback, good, neutral, bad }) => {
   return (
-    <ul>
-      <li>Good: {good}</li>
-      <li>Neutral: {neutral}</li>
-      <li>Bad: {bad}</li>
-      <li>Total: {totalFeedback}</li>
-      <li>Positive: {Math.round((good / totalFeedback) * 100)}%</li>
+    <ul className={s.list}>
+      <li className={s.item}>Good: {good}</li>
+      <li className={s.item}>Neutral: {neutral}</li>
+      <li className={s.item}>Bad: {bad}</li>
+      <li className={s.item}>Total: {totalFeedback}</li>
+      <li className={s.item}>
+        Positive: {Math.round((good / totalFeedback) * 100)}%
+      </li>
     </ul>
   );
 };
